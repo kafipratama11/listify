@@ -1,0 +1,75 @@
+.container-login{
+    height: 100vh;
+    width: 100vh;
+}
+
+.background-primary{
+    background-color: #65558F!important;
+}
+
+.text-primary-custom{
+    color: #65558F!important;
+}
+
+.background-secondary{
+    background-color: #ECE6F0!important;
+}
+
+.sidebar{
+    width: 350px;
+    height: 100vh;
+}
+
+.icon-wrapp{
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.icon-wrapp img{
+    width: 100%;
+    height: 100%;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: #ced4da !important; /* Warna border default */
+    outline: none !important;
+}
+
+.link-sidebar:hover{
+    color: #65558F!important;
+}
+
+.modal-title{
+    font-size: 10px!important;
+}
+
+.task-card{
+    border: 0.5px solid #d2d2d2;
+    border-radius: 15px;
+}
+
+.priority-lvl-card{
+    font-size: 12px;
+    color: #790B2C;
+    background-color: #FFF2F2;
+}
+
+.task-desc{
+    font-size: 14px;
+}
+
+.task-date{
+    color: #C0C0C2;
+    font-size: 12px;
+}
+
+.sub-task{
+    font-size: 14px;
+}
+
+.link-sidebar .active{
+    color: #65558F!important;
+    border-left: 2px solid #65558F;
+}
