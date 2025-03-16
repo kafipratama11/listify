@@ -2,53 +2,9 @@
 @section('main')
 <div class="d-flex">
     <div class="w-100">
-        <nav>
-            <div class="border-bottom">
-                <div class="container-xxl py-2">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="d-flex align-items-center gap-2 py-3 me-auto">
-                            <div class="icon-wrapp">
-                                <img src="img/icon-todolist-ukk-purple.png" alt="">
-                            </div>
-                            <div class="fw-medium fs-5">Listify</div>
-                        </div>
-                        {{-- <div class="fw-medium fs-5 me-auto">Home</div> --}}
-                        <div>
-                            <input class="form-control form-control py-2 rounded-pill ps-3" type="text" placeholder="Search" aria-label=".form-control-lg example">
-                        </div>
-                        {{-- <divz class="vr"></divz> --}}
-                        <div class="border-start">
-                            <div class="btn-group">
-                                <button class="btn bg-transparent border-0 dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                    Kafi Pratama
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        @include('partials.navbar')
         <div class="d-flex container-xxl">
-            <aside class="sidebar px-1 py-2 border-end">
-                <div class="text-body-tertiary fw-bold mt-3">GENERAL</div>
-                <div class="p-2 vstack gap-2">
-                    <a class="link-sidebar link-dark link-underline link-underline-opacity-0" href="">
-                        <div class="d-flex link-sidebar gap-2 py-1 px-2 text-secondary {{ request()->is('task') ? 'active' : '' }}">
-                            <i class="bi bi-house"></i>
-                            <div class="fw-medium">Home</div>
-                        </div>
-                    </a>
-                    <a class="link-sidebar link-dark link-underline link-underline-opacity-0" href="">
-                        <div class="d-flex link-sidebar gap-2 py-1 px-2 text-secondary">
-                            <i class="bi bi-file-earmark-check"></i>
-                            <div class="fw-medium">Archive</div>
-                        </div>
-                    </a>
-                </div>
-            </aside>
+            @include('partials.sidebar')
             <div class="px-4 w-100">
                 <nav aria-label="breadcrumb" class="mt-3">
                     <ol class="breadcrumb">
@@ -73,7 +29,7 @@
                             </a>
                         </div>
                     </div> --}}
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <ul class="nav nav-tabs gap-2" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active link-dark" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
                                 <div class="d-flex gap-2">
@@ -92,7 +48,7 @@
                         </li>
                     </ul>
                     <div class="mt-4 d-flex">
-                        <button class="btn background-primary border-0 text-light me-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-plus-lg"></i> Add New Task</button>
+                        <button class="btn background-primary border-0 text-light me-auto shadow" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-plus-lg"></i> Add New Task</button>
                         <div>
                             <input class="form-control form-control py-2 rounded-pill ps-3" type="text" placeholder="Search Tasks" aria-label=".form-control-lg example">
                         </div>
@@ -262,7 +218,43 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">ambon</div>
+                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                            <div class="vstack gap-2">
+                                <div class="task-card px-5 pe-4 py-4">
+                                    <div class="vstack gap-2">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="fw-medium">Set Up Development Environment</div>
+                                            <div class="priority-lvl-card px-2 py-1 rounded me-auto" style="width: fit-content;">High</div>
+                                            <div class="status-card status-card-done px-2 py-1 rounded" style="width: fit-content;"><i class="bi bi-check-lg"></i> Done</div>
+                                        </div>
+                                        <div class="fw-light task-desc text-secondary">Prepare the technical environment where the website will be built.</div>
+                                        <div class="task-date fw-medium">Nov 2nd, 2024</div>
+                                    </div>
+                                </div>
+                                <div class="task-card px-5 pe-4 py-4">
+                                    <div class="vstack gap-2">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="fw-medium">Set Up Development Environment</div>
+                                            <div class="priority-lvl-card px-2 py-1 rounded me-auto" style="width: fit-content;">High</div>
+                                            <div class="status-card status-card-onprogress px-2 py-1 rounded" style="width: fit-content;"><i class="bi bi-arrow-clockwise"></i> On Progress</div>
+                                        </div>
+                                        <div class="fw-light task-desc text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis fugiat esse quidem hic distinctio ab cum vitae maiores quae natus.</div>
+                                        <div class="task-date fw-medium">Nov 2nd, 2024</div>
+                                    </div>
+                                </div>
+                                <div class="task-card px-5 pe-4 py-4">
+                                    <div class="vstack gap-2">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="fw-medium">Set Up Development Environment</div>
+                                            <div class="priority-lvl-card px-2 py-1 rounded me-auto" style="width: fit-content;">High</div>
+                                            <div class="status-card status-card-todo px-2 py-1 rounded" style="width: fit-content;"><i class="bi bi-circle"></i> To-do</div>
+                                        </div>
+                                        <div class="fw-light task-desc text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum praesentium mollitia cumque magnam, aliquam voluptate pariatur eum esse?`</div>
+                                        <div class="task-date fw-medium">Nov 2nd, 2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

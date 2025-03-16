@@ -61,6 +61,23 @@
     background-color: #FFF2F2;
 }
 
+.status-card{
+    font-size: 12px;
+}
+
+.status-card-todo{
+    color: #0DA6EB;
+    background-color: #BFF3FF;
+}
+.status-card-onprogress{
+    color: #D945EE;
+    background-color: #f2caf8;;
+}
+.status-card-done{
+    color: rgb(9, 104, 9);
+    background-color: rgb(218, 238, 218);
+}
+
 .task-desc{
     font-size: 14px;
 }
@@ -111,6 +128,4 @@
 .card-option input:checked + label {
     border-color: #65558F;
     color: #65558F;
-    
-    font-weight: bold;
 }

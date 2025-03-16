@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArchiveController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-
-Route::get('/task', function () {
-    return view('tasks');
+Route::get('/signup', function () {
+    return view('signup');
 });
+
+Route::get('/task', [TaskController::class, 'index'])->name('task');
+Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');
