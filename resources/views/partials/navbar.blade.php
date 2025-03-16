@@ -4,7 +4,7 @@
             <div class="d-flex align-items-center gap-3">
                 <div class="d-flex align-items-center gap-2 py-3 me-auto">
                     <div class="icon-wrapp">
-                        <img src="img/icon-todolist-ukk-purple.png" alt="">
+                        <img src="../../img/icon-todolist-ukk-purple.png" alt="">
                     </div>
                     <div class="fw-medium fs-5">Listify</div>
                 </div>

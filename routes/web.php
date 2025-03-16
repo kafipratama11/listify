@@ -21,6 +21,9 @@ Route::get('/', function () {
 Route::get('/signup', function () {
     return view('signup');
 });
+Route::get('/home/1', function () {
+    return view('edit-task');
+});
 
 Route::get('/task', [TaskController::class, 'index'])->name('task');
 Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');

@@ -123,9 +123,68 @@
     cursor: pointer;
     transition: 0.3s;
     background-color: #ffffff;
+    /* color: #595959!important; */
 }
 
 .card-option input:checked + label {
-    border-color: #65558F;
-    color: #65558F;
+    background-color: #fcfcfc;
+}
+.card-option input:checked + .option1 {
+    border-color: #0DA6EB;
+    color: #0DA6EB;
+}
+.card-option input:checked + .option2 {
+    border-color: #a1aa29;
+    color: #a1aa29;
+}
+.card-option input:checked + .option3 {
+    border-color: #790B2C;
+    color: #790B2C;
+}
+.nav-tabs .nav-link {
+    border: none!important;
+    position: relative;
+    color: #6b6b6b!important;
+}
+.nav-tabs .nav-link.active {
+    border-bottom: 2px solid #000000!important;
+    color: #000000!important;
+}
+
+.status-option-modal {
+    display: none; /* Sembunyikan radio button */
+}
+
+.status-card-modal {
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 14px;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.status-card-onprogress-modal {
+    color: #D945EE;
+    background-color: #f2caf8;
+}
+
+.status-card-done-modal {
+    color: #28A745;
+    background-color: #D4EDDA;
+}
+
+/* Efek ketika dipilih */
+.status-option-modal:checked + .status-card-todo {
+    border: 1px solid #0DA6EB;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.status-option-modal:checked + .status-card-onprogress {
+    border: 1px solid #D945EE;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.status-option-modal:checked + .status-card-done {
+    border: 1px solid #28A745;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
