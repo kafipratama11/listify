@@ -1,3 +1,7 @@
+*{
+    font-family: "Roboto", sans-serif;
+}
+
 .container-login{
     height: 100vh;
     width: 100vh;
@@ -16,7 +20,8 @@
 }
 
 .sidebar{
-    width: 350px;
+    min-width: 200px;
+    max-width: 200px;
     height: 100vh;
 }
 
@@ -72,4 +77,40 @@
 .link-sidebar .active{
     color: #65558F!important;
     border-left: 2px solid #65558F;
+}
+
+.task-card:hover{
+    background-color: #fdfdfd;
+}
+
+.label-container{
+    width: 150px;
+}
+
+.card-option {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card-option input {
+    display: none;
+}
+
+.card-option label {
+    width: 150px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #ffffff;
+}
+
+.card-option input:checked + label {
+    border-color: #65558F;
+    color: #65558F;
+    
+    font-weight: bold;
 }
