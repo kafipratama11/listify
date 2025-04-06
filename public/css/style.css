@@ -2,6 +2,19 @@
     font-family: "Roboto", sans-serif;
 }
 
+.password-container {
+    position: relative;
+}
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #6c757d;
+}
+
 .container-login{
     height: 100vh;
     width: 100vh;
@@ -22,12 +35,12 @@
 .sidebar{
     min-width: 200px;
     max-width: 200px;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .icon-wrapp{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     overflow: hidden;
 }
 
@@ -38,7 +51,7 @@
 
 .form-control:focus {
     box-shadow: none !important;
-    border-color: #ced4da !important; /* Warna border default */
+    border-color: #65558F !important; /* Warna border default */
     outline: none !important;
 }
 
@@ -71,7 +84,7 @@
 }
 .status-card-onprogress{
     color: #D945EE;
-    background-color: #f2caf8;;
+    background-color: #f2caf8;
 }
 .status-card-done{
     color: rgb(9, 104, 9);
@@ -80,6 +93,14 @@
 
 .task-desc{
     font-size: 14px;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #e2db1f, #ae10f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .task-date{
@@ -179,12 +200,58 @@
 .status-option-modal:checked + .status-card-todo {
     border: 1px solid #0DA6EB;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* background-color: #0DA6EB;
+    color:  #BFF3FF; */
 }
 .status-option-modal:checked + .status-card-onprogress {
     border: 1px solid #D945EE;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* background-color: #D945EE;
+    color: #f2caf8; */
 }
 .status-option-modal:checked + .status-card-done {
     border: 1px solid #28A745;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-delete-task-card{
+    transition: 0.8s;
+}
+
+.btn-delete-task-card:hover{
+    background-color: #E83F25!important;
+    color: #ffffff!important;
+    border-radius: 0%!important;
+}
+
+.modal.fade .modal-dialog {
+    animation: zoomIn 0.3s ease-in-out;
+  }
+  
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+@media (max-width: 500px) {
+    .status-text{
+        display: none;
+    }
+    .task-board-wrapp{
+        width: 800px;
+    }
+    .container-task-board{
+        overflow-x: auto;
+    }
+}
+@media (max-width: 992px) {
+    .sidebar {
+        display: none;
+    }
 }

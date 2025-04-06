@@ -17,37 +17,43 @@
                         <div class="vstack gap-3">
                             <div class="vstack gap-1">
                                 <label class="label-container text-secondary">Task</label>
-                                <input class="form-control" type="text" placeholder="" aria-label="default input example">
+                                <input class="form-control" type="text" name="title" value="{{ old('title', $task->title) }}" placeholder="Task Title">
                             </div>
+                            
                             <div class="vstack gap-1">
                                 <label class="label-container text-secondary">Description</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" name="description" rows="3">{{ old('description', $task->description) }}</textarea>
                             </div>
+                            
                             <div class="vstack gap-1">
                                 <label class="label-container text-secondary">Priority level</label>
                                 <div class="card-option">
-                                    <input type="radio" id="option1" name="payment" value="credit-card" checked>
+                                    <input type="radio" id="option1" name="id_category" value="1" {{ $task->id_category == 1 ? 'checked' : '' }}>
                                     <label class="option1" for="option1">
                                         <div>Low</div>
                                     </label>
-                                    <input type="radio" id="option2" name="payment" value="paypal">
+                            
+                                    <input type="radio" id="option2" name="id_category" value="2" {{ $task->id_category == 2 ? 'checked' : '' }}>
                                     <label class="option2" for="option2">
                                         <div>Medium</div>
                                     </label>
-                                    <input type="radio" id="option3" name="payment" value="bank-transfer">
+                            
+                                    <input type="radio" id="option3" name="id_category" value="3" {{ $task->id_category == 3 ? 'checked' : '' }}>
                                     <label class="option3" for="option3">
                                         <div>High</div>
                                     </label>
                                 </div>
                             </div>
+                            
                             <div class="vstack gap-1">
                                 <label class="label-container text-secondary">Date</label>
                                 <div class="d-flex gap-3 align-items-center">
-                                    <input class="form-control" type="date" placeholder="" aria-label="default input example">
+                                    <input class="form-control" type="date" name="task_date" value="{{ old('task_date', $task->task_date) }}">
                                     <div>-</div>
-                                    <input class="form-control" type="date" placeholder="" aria-label="default input example">
+                                    <input class="form-control" type="date" name="deadline" value="{{ old('deadline', $task->deadline) }}">
                                 </div>
                             </div>
+                            
                             <div class="d-flex justify-content-end mt-3">
                                 <button type="button" class="btn background-primary text-light rounded-pill px-4" style="width: fit-content">Save</button>
                             </div>
