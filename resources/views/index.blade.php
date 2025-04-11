@@ -12,8 +12,7 @@
                             </div>
                             <div>Let's sign you in</div>
                         </div>
-                        <form action="/login" method="POST">
-                            @csrf
+                        <form action="" method="POST">
                             <div class="vstack gap-3 mb-4">
                                 <input class="form-control py-3 px-3 w-100 bg-transparent" type="text" placeholder="Email address" name="email" aria-label="default input example">
                                 <div class="password-container">

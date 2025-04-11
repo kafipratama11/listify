@@ -20,15 +20,14 @@
                 <div class="border-start px-4">
                     <div class="btn-group">
                         <button class="btn btn-light border-0 text-dark px-4" type="button">
-                            {{ auth()->user()->name }}
+                            name
                         </button>
                         <button type="button" class="btn btn-light border-0 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <form action="/logout" method="POST">
-                                    @csrf
+                                <form action="" method="POST">
                                     <button type="submit" class="dropdown-item" href="#" style="font-size: 14px">Logout</button>
                                 </form>
                             </li>

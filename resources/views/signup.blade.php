@@ -5,8 +5,7 @@
         <div class="row justify-content-center align-items-center w-100 h-100">
             <div class="col-xxl-4 col-xl-4 col-md-4 col-sm-12">
                 <div class="text-center">
-                    <form action="/register" method="POST">
-                        @csrf
+                    <form action="" method="POST">
                         <div class="vstack gap-4 mb-4">
                             <div class="">
                                 <img src="img/icon-todolist-ukk.png" alt="" srcset="">
