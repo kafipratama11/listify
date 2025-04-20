@@ -6,14 +6,24 @@
         <div class="d-flex container-xxl h-100">
             @include('partials.sidebar')
             <div class="main-section-wrapp px-xxl-4 px-xl-4 px-md-2 px-sm-0 w-100">
-                <nav aria-label="breadcrumb" class="mt-3">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#" class="link-underline link-underline-opacity-0">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Library</li>
-                    </ol>
-                </nav>
-                {{-- <div class="mt-2 gradient-text">{{ $greeting }}, {{ auth()->user()->name }}!</div> --}}
-                <div class="mt-4">
+                <div class="mt-5">
+                    <div class="d-flex gap-2 mb-2">
+                        <div class="status-card status-card-todo px-2 py-1 rounded d-flex gap-1" style="width: fit-content;">
+                            <i class="bi bi-circle"></i>
+                            <div class="status-text">To-do</div>
+                            <div class="task-count">(0)</div>
+                        </div>
+                        <div class="status-card status-card-onprogress px-2 py-1 rounded d-flex gap-1" style="width: fit-content;">
+                            <i class="bi bi-arrow-clockwise"></i>
+                            <div class="status-text">On Progress</div>
+                            <div class="task-count">(0)</div>
+                        </div>
+                        <div class="status-card status-card-done px-2 py-1 rounded d-flex gap-1" style="width: fit-content;">
+                            <i class="bi bi-check-lg"></i>
+                            <div class="status-text">Done</div>
+                            <div class="task-count">(0)</div>
+                        </div>
+                    </div>
                     <ul class="nav nav-tabs gap-2" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active link-dark" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
@@ -38,7 +48,7 @@
                             <input class="form-control form-control py-2 rounded-pill ps-3" type="text" placeholder="Search Tasks" aria-label=".form-control-lg example">
                         </div>
                     </div>
-                    <!-- Modal -->
+                    <!-- Modal Add Task -->
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-lg d-flex justify-content-center">
                             <form action="" method="POST">
@@ -97,6 +107,7 @@
                     <div class="tab-content mt-5 pb-5" id="myTabContent">
                         <div class="tab-pane fade show active container-task-board" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                             <div class="d-flex task-board-wrapp gap-3">
+                                {{-- task todo section --}}
                                 <div class="w-100">
                                     <div class="border-bottom d-flex align-items-center py-2 w-100 gap-2">
                                         <i class="bi bi-circle-fill" style="color: #0DA6EB; font-size: 12px;"></i>
@@ -115,13 +126,14 @@
                                                         <div class="fw-medium link-dark">Title</div>
                                                         <div class="fw-light task-desc text-secondary">Description</div>
                                                         <div class="task-date fw-medium">
+                                                            date - deadline
                                                         </div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <button class="btn-delete-task-card p-2 z-4 m-0 border-0 text-body-tertiary bg-light" style="position: absolute; right: 0px; border-radius: 0 0 0 12px;" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash3"></i></button>
                                         </div>
-                                        <!-- Modal delete-->
+                                        <!-- Modal delete Task todo-->
                                         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
@@ -143,7 +155,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- modal edit--}}
+                                        {{-- modal edit task todo--}}
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" style="width: 300px">
                                                 <div class="modal-content">
@@ -157,7 +169,7 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body vstack gap-1">
-                                                            <input type="radio" id="todo" name="id_status" class="status-option-modal" value="1">
+                                                            <input type="radio" id="todo1" name="id_status" class="status-option-modal" value="1">
                                                             <label for="todo" class="status-card-modal status-card-todo" style="width: fit-content">
                                                                 <i class="bi bi-circle"></i> To-do
                                                             </label>
@@ -186,6 +198,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                {{-- task onprogress section --}}
                                 <div class="w-100">
                                     <div class="border-bottom d-flex align-items-center py-2 w-100 gap-2">
                                         <i class="bi bi-circle-fill" style="color: #D945EE; font-size: 12px;"></i>
@@ -209,7 +222,7 @@
                                             </a>
                                             <button class="btn-delete-task-card p-2 z-4 m-0 border-0 text-body-tertiary bg-light" style="position: absolute; right: 0px; border-radius: 0 0 0 12px;" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash3"></i></button>
                                         </div>
-                                        <!-- Modal delete-->
+                                        <!-- Modal delete task onprogress-->
                                         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
@@ -231,7 +244,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- modal --}}
+                                        {{-- modal edit task onprogress--}}
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" style="width: 300px">
                                                 <div class="modal-content">
@@ -274,6 +287,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                {{-- task done section --}}
                                 <div class="w-100">
                                     <div class="border-bottom d-flex align-items-center py-2 w-100 gap-2">
                                         <i class="bi bi-circle-fill" style="color: #32A17B; font-size: 12px;"></i>
@@ -297,7 +311,7 @@
                                             </a>
                                             <button class="btn-delete-task-card p-2 z-4 m-0 border-0 text-body-tertiary bg-light" style="position: absolute; right: 0px; border-radius: 0 0 0 12px;" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash3"></i></button>
                                         </div>
-                                        <!-- Modal delete-->
+                                        <!-- Modal delete task done -->
                                         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
@@ -319,7 +333,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- modal --}}
+                                        {{-- modal edit task done --}}
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" style="width: 300px">
                                                 <div class="modal-content">
@@ -365,6 +379,7 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                            {{-- task list section --}}
                             <div class="vstack gap-2">
                                 <div class="task-card w-100 position-relative overflow-hidden">
                                     <a href="" class="link-underline link-underline-opacity-0 link-dark" data-bs-toggle="modal" data-bs-target="#listModal">
@@ -395,7 +410,7 @@
                                     </a>
                                     <button class="btn-delete-task-card p-2 z-4 m-0 border-0 text-body-tertiary bg-light" style="position: absolute; right: 0px; bottom: 0px; border-radius: 12px 0 0 0;" data-bs-toggle="modal" data-bs-target="#deleteModalList"><i class="bi bi-trash3"></i></button>
                                 </div>
-                                <!-- Modal delete-->
+                                <!-- Modal delete task list-->
                                 <div class="modal fade" id="deleteModalList" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
@@ -417,7 +432,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- modal --}}
+                                {{-- modal edit task list--}}
                                 <div class="modal fade" id="listModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" style="width: 300px">
                                         <div class="modal-content">
