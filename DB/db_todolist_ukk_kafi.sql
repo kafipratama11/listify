@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 22, 2025 at 08:20 AM
+-- Generation Time: Apr 22, 2025 at 08:25 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.23
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_todolist_ukk_kafi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int NOT NULL,
+  `category_name` varchar(25) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `id` int NOT NULL,
+  `status_name` varchar(25) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -53,9 +79,44 @@ INSERT INTO `tasks` (`id`, `id_user`, `id_category`, `id_status`, `title`, `desc
 (14, 2, 2, 2, 'task 1', 'desc task 1', '2025-04-23', '2025-04-24', 'active', '2025-04-21 23:56:32', '2025-04-21 23:59:50'),
 (15, 2, 1, 1, 'task 2', 'desc task 2', '2025-04-23', NULL, 'active', '2025-04-21 23:57:01', '2025-04-21 23:57:01');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'username1', 'username1@gmail.com', '$2y$12$Vn/2rOMNFz2c8UUy8N43u.AiycmWStn32QZ19pKi/AGyFG6YVIiHy', '2025-04-21 18:51:52', '2025-04-21 18:51:52'),
+(2, 'username2', 'username2@gmail.com', '$2y$12$NqHQ3u4f3u767K6hj1B7rulwLUnDrRifGQfd1VdeBbG/AMXhwRI7G', '2025-04-21 23:54:36', '2025-04-21 23:54:36');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tasks`
@@ -64,14 +125,38 @@ ALTER TABLE `tasks`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
