@@ -8,12 +8,12 @@
                     <div class="fw-medium">Home</div>
                 </div>
             </a>
-            {{-- <a class="link-sidebar link-dark link-underline link-underline-opacity-0" href="{{ route('archive') }}">
+            <a class="link-sidebar link-dark link-underline link-underline-opacity-0" href="{{ route('archive') }}">
                 <div class="d-flex link-sidebar gap-2 py-1 px-2 text-secondary {{ request()->is('archive') ? 'active' : '' }}">
                     <i class="bi bi-file-earmark-check"></i>
                     <div class="fw-medium">Archive</div>
                 </div>
-            </a> --}}
+            </a>
         </div>
     </div>
 </aside>

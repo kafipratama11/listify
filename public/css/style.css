@@ -20,6 +20,15 @@
     width: 100vh;
 }
 
+.low-lvl{
+    background-color: rgb(194, 232, 194)!important;
+    color: green!important;
+}
+.medium-lvl{
+    background-color: rgb(240, 244, 213)!important;
+    color: rgb(193, 187, 15)!important;
+}
+
 .background-primary{
     background-color: #65558F!important;
 }

@@ -1,9 +1,15 @@
 @extends('layouts.app')
 @section('main')
     <body style="background-color: #f1f1f1;">
+        @if (session('success'))
+            <div class="alert alert-success position-absolute text-center w-100">{{ session('success') }}</div>
+        @endif
+        @if ($errors->has('email'))
+            <div class="alert alert-danger position-absolute text-center w-100">{{ $errors->first('email') }}</div>
+        @endif
         <div class="container container-login justify-content-center d-flex">
             <div class="row justify-content-center align-items-center w-100 h-100">
-                <div class="col-xxl-4 col-xl-4 col-md-4 col-sm-12">
+                <div class="col-xxl-4 col-xl-4 col-md-6 col-sm-12">
                     <div class="text-center">
                         <div class="vstack gap-4 mb-4">
                             <div class="">
@@ -12,7 +18,9 @@
                             </div>
                             <div>Let's sign you in</div>
                         </div>
-                        <form action="" method="POST">
+                        <form action="{{ route('login') }}" method="POST">
+                            @csrf
+                            @method('post')
                             <div class="vstack gap-3 mb-4">
                                 <input class="form-control py-3 px-3 w-100 bg-transparent" type="text" placeholder="Email address" name="email" aria-label="default input example">
                                 <div class="password-container">
