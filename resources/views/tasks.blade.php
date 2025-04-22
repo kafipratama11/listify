@@ -169,7 +169,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- modal edit task todo--}}
+                                        {{-- modal edit task todo --}}
                                         <div class="modal fade" id="exampleModal{{ $task->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" style="width: 300px">
                                                 <div class="modal-content">
