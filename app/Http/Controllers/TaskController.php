@@ -37,7 +37,7 @@ class TaskController extends Controller
             'id_category' => 'required|integer',
             'id_status' => 'required|integer',
             'title' => 'required',
-            'description' => 'required',
+            'description' => 'nullable',
             'task_date' => 'required',
             'deadline' => 'nullable',
             'archive_status' => 'nullable'
@@ -61,7 +61,7 @@ class TaskController extends Controller
         $request->validate([
             'id_category' => 'required|integer',
             'title' => 'required',
-            'description' => 'required',
+            'description' => 'nullable',
             'task_date' => 'required',
             'deadline' => 'nullable|after_or_equal:task_date'
         ]);
