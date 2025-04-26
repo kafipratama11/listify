@@ -12,7 +12,13 @@ class ArchiveController extends Controller
     public function index(){
         $tasksArchive = Task::where('id_user', auth()->id())->where('archive_status', "archived")->orderBy('task_date', 'asc')->get();
 
-        return view('archives', compact('tasksArchive'));
+        $taskId = Task::where('id_user', auth()->id())->where('archive_status', "archived")->get('id');
+
+        $taskTodoCount = Task::where('id_status', 1)->where('id_user', auth()->id())->where('archive_status', "archived")->count();
+        $taskOnProgressCount = Task::where('id_status', 2)->where('id_user', auth()->id())->where('archive_status', "archived")->count();
+        $taskDoneCount = Task::where('id_status', 3)->where('id_user', auth()->id())->where('archive_status', "archived")->count();
+
+        return view('archives', compact('tasksArchive', 'taskTodoCount', 'taskOnProgressCount', 'taskDoneCount', 'taskId'));
     }
 
     public function updateArchiveStatus(Request $request, $id){

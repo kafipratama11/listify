@@ -14,5 +14,13 @@
   <body>
     @yield('main')
     <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script>
+      const toastElList = [].slice.call(document.querySelectorAll('.toast'))
+      const toastList = toastElList.map(function (toastEl) {
+          return new bootstrap.Toast(toastEl, { delay: 15000 });
+      });
+  
+      toastList.forEach(toast => toast.show());
+  </script>  
   </body>
 </html>

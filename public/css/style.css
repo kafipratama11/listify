@@ -68,6 +68,11 @@
     color: #65558F!important;
 }
 
+.dropdown-item{
+    font-size: 14px!important;
+    color: grey!important;
+}
+
 .modal-title{
     font-size: 10px!important;
 }
@@ -223,12 +228,24 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.btn-delete-task-card{
-    transition: 0.8s;
+.btn-drop-task-card{
+    transition: 0.3s;
+    border-radius: 0 0 0 12px!important;
 }
 
-.btn-delete-task-card:hover{
-    background-color: #E83F25!important;
+.btn-drop-task-card-list{
+    transition: 0.3s;
+    border-radius: 12px 0 0 0!important;
+}
+
+.btn-drop-task-card:hover{
+    background-color: #cfcfcf!important;
+    color: #ffffff!important;
+    border-radius: 0%!important;
+}
+
+.btn-drop-task-card-list:hover{
+    background-color: #cfcfcf!important;
     color: #ffffff!important;
     border-radius: 0%!important;
 }
@@ -257,6 +274,9 @@
     }
     .container-task-board{
         overflow-x: auto;
+    }
+    .data-not-found{
+        width: 300px!important;
     }
 }
 @media (max-width: 992px) {

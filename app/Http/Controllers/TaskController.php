@@ -13,6 +13,8 @@ class TaskController extends Controller
 
         $tasks = Task::where('id_user', auth()->id())->where('archive_status', "active")->orderBy('task_date', 'asc')->get();
 
+        $taskId = Task::where('id_user', auth()->id())->where('archive_status', "active")->get('id');
+
         $taskTodo = Task::where('id_status', 1)->where('id_user', auth()->id())->where('archive_status', "active")->orderBy('task_date', 'asc')->get();
         $taskOnProgress = Task::where('id_status', 2)->where('id_user', auth()->id())->where('archive_status', "active")->orderBy('task_date', 'asc')->get();
         $taskDone = Task::where('id_status', 3)->where('id_user', auth()->id())->where('archive_status', "active")->orderBy('task_date', 'asc')->get();
@@ -21,7 +23,7 @@ class TaskController extends Controller
         $taskOnProgressCount = Task::where('id_status', 2)->where('id_user', auth()->id())->where('archive_status', "active")->count();
         $taskDoneCount = Task::where('id_status', 3)->where('id_user', auth()->id())->where('archive_status', "active")->count();
         
-        return view('tasks', compact('tasks', 'taskTodo', 'taskOnProgress', 'taskDone', 'taskTodoCount', 'taskOnProgressCount', 'taskDoneCount'));
+        return view('tasks', compact('tasks', 'taskTodo', 'taskOnProgress', 'taskDone', 'taskTodoCount', 'taskOnProgressCount', 'taskDoneCount', 'taskId'));
     }
 
     public function edit($id){
@@ -61,7 +63,7 @@ class TaskController extends Controller
             'title' => 'required',
             'description' => 'required',
             'task_date' => 'required',
-            'deadline' => 'nullable'
+            'deadline' => 'nullable|after_or_equal:task_date'
         ]);
 
         $task = Task::findOrFail($id);

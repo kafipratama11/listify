@@ -1,6 +1,15 @@
 @extends('layouts.app')
 @section('main')
 <body style="background-color: #f1f1f1;">
+    @if ($errors->has('email'))
+        <div class="alert alert-danger position-absolute text-center w-100">{{ $errors->first('email') }}</div>
+    @endif
+    @if (session('error'))
+        <div class="alert alert-danger position-absolute text-center alert-dismissible fade show w-100" role="alert">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="container container-login justify-content-center d-flex">
         <div class="row justify-content-center align-items-center w-100 h-100">
             <div class="col-xxl-4 col-xl-4 col-md-6 col-sm-12">
@@ -16,10 +25,10 @@
                             <div>Let's sign you up</div>
                         </div>
                         <div class="vstack gap-3 mb-4">
-                            <input class="form-control py-3 px-3 w-100 bg-transparent" name="name" type="text" placeholder="Username" aria-label="default input example">
-                            <input class="form-control py-3 px-3 w-100 bg-transparent" name="email" type="text" placeholder="Email address" aria-label="default input example">
+                            <input class="form-control py-3 px-3 w-100 bg-transparent @error('name') is-invalid @enderror" name="name" type="text" placeholder="Username" aria-label="default input example">
+                            <input class="form-control py-3 px-3 w-100 bg-transparent @error('email') is-invalid @enderror" name="email" type="text" placeholder="Email address" aria-label="default input example">
                             <div class="password-container">
-                                <input type="password" id="password" name="password" class="form-control py-3 px-3 w-100 bg-transparent" placeholder="Password">
+                                <input type="password" id="password" name="password" class="form-control py-3 px-3 w-100 bg-transparent @error('password') is-invalid @enderror" placeholder="Password">
                                 <i class="bi bi-eye toggle-password" id="togglePassword"></i>
                             </div>
                         </div>

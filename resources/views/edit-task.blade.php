@@ -30,7 +30,7 @@
                             @method('patch')
                             <div class="vstack gap-3">
                                 <div class="vstack gap-1">
-                                    <label class="label-container text-secondary">Task</label>
+                                    <label class="label-container text-secondary @error('task_date') is-invalid @enderror">Task</label>
                                     <input class="form-control" type="text" name="title" value="{{ $task->title }}">
                                 </div>
                                 
@@ -61,10 +61,20 @@
                                 
                                 <div class="vstack gap-1">
                                     <label class="label-container text-secondary">Date</label>
-                                    <div class="d-flex gap-3 align-items-center">
-                                        <input class="form-control" type="date" name="task_date" value="{{ $task->task_date }}">
-                                        <div>-</div>
-                                        <input class="form-control" type="date" name="deadline" value="{{ $task->deadline }}">
+                                    <div class="d-flex gap-3 align-items-start">
+                                        <div class="w-100">
+                                            <input class="form-control @error('task_date') is-invalid @enderror" type="date" name="task_date" value="{{ $task->task_date }}">
+                                            @error('task_date')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="pt-2">-</div>
+                                        <div class="w-100">
+                                            <input class="form-control @error('deadline') is-invalid @enderror" type="date" name="deadline" value="{{ $task->deadline }}">
+                                            @error('deadline')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                     </div>
                                 </div>
                                 

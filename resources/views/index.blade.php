@@ -2,7 +2,16 @@
 @section('main')
     <body style="background-color: #f1f1f1;">
         @if (session('success'))
-            <div class="alert alert-success position-absolute text-center w-100">{{ session('success') }}</div>
+            <div class="alert alert-success position-absolute text-center alert-dismissible fade show w-100" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        @if (session('error'))
+            <div class="alert alert-danger position-absolute text-center alert-dismissible fade show w-100" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         @endif
         @if ($errors->has('email'))
             <div class="alert alert-danger position-absolute text-center w-100">{{ $errors->first('email') }}</div>
@@ -22,9 +31,9 @@
                             @csrf
                             @method('post')
                             <div class="vstack gap-3 mb-4">
-                                <input class="form-control py-3 px-3 w-100 bg-transparent" type="text" placeholder="Email address" name="email" aria-label="default input example">
+                                <input class="form-control py-3 px-3 w-100 bg-transparent @error('email') is-invalid @enderror" type="text" placeholder="Email address" name="email" aria-label="default input example">
                                 <div class="password-container">
-                                    <input type="password" id="password" class="form-control py-3 px-3 w-100 bg-transparent" name="password" placeholder="Password">
+                                    <input type="password" id="password" class="form-control py-3 px-3 w-100 bg-transparent @error('password') is-invalid @enderror" name="password" placeholder="Password">
                                     <i class="bi bi-eye toggle-password" id="togglePassword"></i>
                                 </div>
                             </div>

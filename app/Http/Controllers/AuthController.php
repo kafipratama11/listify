@@ -33,7 +33,7 @@ class AuthController extends Controller
         ]);
 
         if(auth::attempt($credentials)){
-            return redirect('task');
+            return redirect('task')->with('success', 'Welcome ' .  auth()->user()->name . '!');
         }
 
         return back()->withErrors(['email' => 'email atau password salah']);

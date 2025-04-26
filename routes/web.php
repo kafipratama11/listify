@@ -16,16 +16,16 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::middleware(['guest'])->group(function(){
+    Route::get('/', function () {
+        return view('index');
+    });
+    Route::get('/signup', function () {
+        return view('signup');
+    });
+    Route::post('regiter', [AuthController::class, 'register'])->name('register');
+    Route::post('login', [AuthController::class, 'login'])->name('login');
 });
-Route::get('/signup', function () {
-    return view('signup');
-});
-
-Route::post('regiter', [AuthController::class, 'register'])->name('register');
-Route::post('login', [AuthController::class, 'login'])->name('login');
-Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['Login'])->group(function(){
     Route::get('/task', [TaskController::class, 'index'])->name('task');
@@ -48,4 +48,6 @@ Route::middleware(['Login'])->group(function(){
     // archive status
     Route::patch('/task/archive-status/{id}', [ArchiveController::class, 'updateArchiveStatus'])->name('archive.status');
     Route::patch('/task/archive-status/active/{id}', [ArchiveController::class, 'updateArchiveStatusActive'])->name('archive.status.active');
+    // logout
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
